@@ -74,7 +74,7 @@
                         </div>
                     </div>
 
-                    <div class="group">
+                    <div class="group drop">
                         <label class="label">*Группа клиентов</label>
                         <select class="input" v-model.trim="$v.formReg.clients.$model">
                             <option class="option" value="VIP">VIP</option>
