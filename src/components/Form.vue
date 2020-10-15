@@ -42,7 +42,7 @@
                                 type="text" class="input" id="fathername">
                     </div>
 
-                    <div class="group">
+                    <div class="group drop">
                         <div >
                             <label class="label">*Дата рождения</label>
                             <input type="date" class="input" v-model.trim="$v.formReg.date.$model">
@@ -109,7 +109,7 @@
                     </label>
                     <div class="group">
                     <button @click="step++" :disabled="disabledBtn1"
-                            type="button" class="button disbtn">Следующий шаг</button>
+                            type="button" class="button">Следующий шаг</button>
                     </div>
 
                 </div>
