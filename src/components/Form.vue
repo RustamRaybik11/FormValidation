@@ -109,7 +109,7 @@
                     </label>
                     <div class="group">
                     <button @click="step++" :disabled="disabledBtn1"
-                            type="button" class="button">Следующий шаг</button>
+                            type="button" class="button">Далее</button>
                     </div>
 
                 </div>
@@ -168,7 +168,7 @@
                         <div class="row">
                             <button @click="step--" type="button" class="button">Назад</button>
                             <button @click="step++" :disabled="disabledBtn2"
-                                    type="button" class="button disbtn">Следующий шаг</button>
+                                    type="button" class="button disbtn">Далее</button>
                         </div>
 
                     </div>
@@ -221,7 +221,7 @@
 
                         </div>
 
-                        <div class="group">
+                        <div class="group вкщз">
                             <div >
                                 <label class="label">*Дата выдачи</label>
                                 <input type="date" class="input" v-model.trim="$v.formReg.dateOfIssue.$model">
@@ -232,7 +232,7 @@
                         
                         <div class="row">    
                             <button @click="step--" type="button" class="button">Назад</button>
-                            <button @click="step++" :disabled="disabledBtnFinish" type="submit" class="button disbtn">Зарегистрироваться</button>
+                            <button @click="step++" :disabled="disabledBtnFinish" type="submit" class="button disbtn">Готово</button>
                         </div>
 
                     </div>
