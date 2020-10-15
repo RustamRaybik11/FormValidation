@@ -6,113 +6,114 @@
                 
 
                 <!--Первый этап -->
+                <transition name="slide-fade">
+                    <div class="dForm" v-show="step === 1">
+                    <h2>Регистрация</h2>
+                        <div class="group">
+                            <label class="label" for="name">*Ваше имя</label>
 
-                <div class="dForm" v-show="step === 1">
-                <h2>Регистрация</h2>
-                    <div class="group">
-                        <label class="label" for="name">*Ваше имя</label>
+                            <input @blur="$v.formReg.name.$touch()"
+                                    :class="status($v.formReg.name)"
+                                    v-model.trim="formReg.name"
+                                    type="text" class="input" id="name">
 
-                        <input @blur="$v.formReg.name.$touch()"
-                                :class="status($v.formReg.name)"
-                                v-model.trim="formReg.name"
-                                type="text" class="input" id="name">
-
-                        <div class="error" v-if="!$v.formReg.name.required">{{ reqText }}</div>
-                        <div class="error" v-if="!$v.formReg.name.alpha">{{ alphaText }}</div>
-                    </div>
-
-                    <div class="group">
-                        <label class="label" for="surname">*Ваша фамилия</label>
-
-                        <input  @blur="$v.formReg.surname.$touch()"
-                                :class="status($v.formReg.surname)"
-                                v-model.trim="formReg.surname"
-                                type="text" class="input" id="surname">
-
-                        <div class="error" v-if="!$v.formReg.surname.required">{{ reqText }}</div>
-                        <div class="error" v-if="!$v.formReg.surname.alpha">{{ alphaText }}</div>
-                    </div>
-
-                    <div class="group">
-                        <label class="label" for="surname">Ваше отчество</label>
-
-                        <input @blur="$v.formReg.fathername.$touch()"
-                                :class="status($v.formReg.fathername)"
-                                v-model.trim="formReg.fathername"
-                                type="text" class="input" id="fathername">
-                    </div>
-
-                    <div class="group drop">
-                        <div >
-                            <label class="label">*Дата рождения</label>
-                            <input type="date" class="input" v-model.trim="$v.formReg.date.$model">
+                            <div class="error" v-if="!$v.formReg.name.required">{{ reqText }}</div>
+                            <div class="error" v-if="!$v.formReg.name.alpha">{{ alphaText }}</div>
                         </div>
-                        <div class="error" v-if="!$v.formReg.date.required">{{reqText}}</div>    
-                    </div>
-                    <div class="group">
-                        <div>
-                            <label class="label">*Номер телефона</label>
-                            <input type="text" class="input" v-model.trim="$v.formReg.phone.$model">
-                        </div>
-                        <div class="error" v-if="!$v.formReg.phone.required">{{reqText}}</div>
-                        <div class="error" v-if="!$v.formReg.phone.integer">{{reqInt}}</div>
-                        <div class="error" v-if="!$v.formReg.phone.strongPhone">{{phoneLength}}</div>
-                        <div class="error" v-if="!$v.formReg.phone.start7">{{start}}</div>
-                    </div>
 
-                    <div class="row">
-                        <label class="label">Пол</label><br><br>
-                        <div class="radBlock">
-                            <label class="input">
-                                <input class="input" type="radio" value="male" v-model.trim="$v.formReg.gender.$model">Муж
-                            </label>
-                        </div>
-                        <div class="radBlock">
-                            <label class="input">
-                                <input class="input" type="radio" value="female" v-model.trim="$v.formReg.gender.$model">Жен
-                            </label>
-                        </div>
-                    </div>
+                        <div class="group">
+                            <label class="label" for="surname">*Ваша фамилия</label>
 
-                    <div class="group drop">
-                        <label class="label">*Группа клиентов</label>
-                        <select class="input" v-model.trim="$v.formReg.clients.$model">
-                            <option class="option" value="VIP">VIP</option>
-                            <option class="option" value="Проблемные">Проблемные</option>
-                            <option class="option" value="ОМС">ОМС</option>
-                        </select>
-                        <div class="error" v-if="!$v.formReg.clients.required">{{reqText}}</div>
-                    </div>
+                            <input  @blur="$v.formReg.surname.$touch()"
+                                    :class="status($v.formReg.surname)"
+                                    v-model.trim="formReg.surname"
+                                    type="text" class="input" id="surname">
 
-                    <div class="row">
-                        <label class="label">Лечащий врач</label><br><br>
-                        <div class="radBlock">
-                            <label class="input">
-                                <input class="input" type="radio" value="Иванов" v-model.trim="$v.formReg.doctor.$model">Иванов
-                            </label>
+                            <div class="error" v-if="!$v.formReg.surname.required">{{ reqText }}</div>
+                            <div class="error" v-if="!$v.formReg.surname.alpha">{{ alphaText }}</div>
                         </div>
-                        <div class="radBlock">
-                            <label class="input">
-                                <input class="input" type="radio" value="Захаров" v-model.trim="$v.formReg.doctor.$model">Захаров
-                            </label>
-                        </div>
-                        <div class="radBlock">
-                            <label class="input">
-                                <input class="input" type="radio" value="Чернышева" v-model.trim="$v.formReg.doctor.$model">Чернышева
-                            </label>
-                        </div>
-                    </div>
 
-                    <label class="row">
-                        <input class="input" type="checkbox" name="sms-agreement" v-model.trim="$v.formReg.sms.$model">
-                        <span class="label">Не отправлять мне смс.</span>
-                    </label>
-                    <div class="group">
-                    <button @click="step++" :disabled="disabledBtn1"
-                            type="button" class="button">Далее</button>
-                    </div>
+                        <div class="group">
+                            <label class="label" for="surname">Ваше отчество</label>
 
-                </div>
+                            <input @blur="$v.formReg.fathername.$touch()"
+                                    :class="status($v.formReg.fathername)"
+                                    v-model.trim="formReg.fathername"
+                                    type="text" class="input" id="fathername">
+                        </div>
+
+                        <div class="group drop">
+                            <div >
+                                <label class="label">*Дата рождения</label>
+                                <input type="date" class="input" v-model.trim="$v.formReg.date.$model">
+                            </div>
+                            <div class="error" v-if="!$v.formReg.date.required">{{reqText}}</div>    
+                        </div>
+                        <div class="group">
+                            <div>
+                                <label class="label">*Номер телефона</label>
+                                <input type="text" class="input" v-model.trim="$v.formReg.phone.$model">
+                            </div>
+                            <div class="error" v-if="!$v.formReg.phone.required">{{reqText}}</div>
+                            <div class="error" v-if="!$v.formReg.phone.integer">{{reqInt}}</div>
+                            <div class="error" v-if="!$v.formReg.phone.strongPhone">{{phoneLength}}</div>
+                            <div class="error" v-if="!$v.formReg.phone.start7">{{start}}</div>
+                        </div>
+
+                        <div class="row">
+                            <label class="label">Пол</label><br><br>
+                            <div class="radBlock">
+                                <label class="input">
+                                    <input class="input" type="radio" value="male" v-model.trim="$v.formReg.gender.$model">Муж
+                                </label>
+                            </div>
+                            <div class="radBlock">
+                                <label class="input">
+                                    <input class="input" type="radio" value="female" v-model.trim="$v.formReg.gender.$model">Жен
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="group drop">
+                            <label class="label">*Группа клиентов</label>
+                            <select class="input" v-model.trim="$v.formReg.clients.$model">
+                                <option class="option" value="VIP">VIP</option>
+                                <option class="option" value="Проблемные">Проблемные</option>
+                                <option class="option" value="ОМС">ОМС</option>
+                            </select>
+                            <div class="error" v-if="!$v.formReg.clients.required">{{reqText}}</div>
+                        </div>
+
+                        <div class="row">
+                            <label class="label">Лечащий врач</label><br><br>
+                            <div class="radBlock">
+                                <label class="input">
+                                    <input class="input" type="radio" value="Иванов" v-model.trim="$v.formReg.doctor.$model">Иванов
+                                </label>
+                            </div>
+                            <div class="radBlock">
+                                <label class="input">
+                                    <input class="input" type="radio" value="Захаров" v-model.trim="$v.formReg.doctor.$model">Захаров
+                                </label>
+                            </div>
+                            <div class="radBlock">
+                                <label class="input">
+                                    <input class="input" type="radio" value="Чернышева" v-model.trim="$v.formReg.doctor.$model">Чернышева
+                                </label>
+                            </div>
+                        </div>
+
+                        <label class="row">
+                            <input class="input" type="checkbox" name="sms-agreement" v-model.trim="$v.formReg.sms.$model">
+                            <span class="label">Не отправлять мне смс.</span>
+                        </label>
+                        <div class="group">
+                        <button @click="step++" :disabled="disabledBtn1"
+                                type="button" class="button">Далее</button>
+                        </div>
+
+                    </div>
+                </transition>
       
 
                 <!--Второй этап -->
@@ -255,6 +256,11 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div>
+            <p>Created by <a href="https://rustam-raybik.netlify.app/">Rustam Raybik</a></p>
+        </div>
+    </footer>
 </form>
 </template>
 
@@ -423,10 +429,10 @@ validations: {
 
 <style>
 .slide-fade-enter-active {
-transition: all 0.3s ease;
+transition: all 0.6s ease;
 }
 .slide-fade-enter {
-transform: translateX(10px);
+transform: translateX(20px);
 opacity: 0;
 }
 </style>

@@ -1,13 +1,12 @@
 body{
 	margin:0;
 	color:#6a6f8c;
-	background:#ffffff;
+	height: 100%;
 	font:600 16px/18px 'Open Sans',sans-serif;
 }
 @media (min-width: 800px) {
-    #app{
-    margin-top: 30px;
-    margin-bottom: 30px;
+    form{
+    padding-top: 30px;
 	}
 	.row{
 		display: inline-block;
@@ -17,12 +16,18 @@ body{
 ::-webkit-calendar-picker-indicator {filter: invert(1);}
 .clearfix:after,.clearfix:before{content:'';display:table}
 .clearfix:after{clear:both;display:block}
+form{
+	
+	background: url(./assets/bg.jpg) no-repeat center fixed;
+	background-size: cover;
+	height: 100%;
+}
 .login-wrap{
 	width:100%;
 	max-width: 625px;
 	margin:auto;
 	position:relative;
-	background: url(./assets/bg.jpg) no-repeat center;
+	background: url(./assets/forest.jpg) no-repeat center;
 	
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
@@ -114,4 +119,16 @@ input[type=radio] {
 
     height: 1em;
 
+}
+
+footer{
+	margin-top: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(17, 1, 1, 0.5);
+	color: white;
+	text-align: center;
 }
