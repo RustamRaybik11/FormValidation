@@ -221,7 +221,7 @@
 
                         </div>
 
-                        <div class="group вкщз">
+                        <div class="group drop">
                             <div >
                                 <label class="label">*Дата выдачи</label>
                                 <input type="date" class="input" v-model.trim="$v.formReg.dateOfIssue.$model">
