@@ -76,7 +76,7 @@
 
                         <div class="group drop">
                             <label class="label">*Группа клиентов</label>
-                            <select class="input" v-model.trim="$v.formReg.clients.$model">
+                            <select class="input multi" v-model.trim="$v.formReg.clients.$model">
                                 <option class="option" value="VIP">VIP</option>
                                 <option class="option" value="Проблемные">Проблемные</option>
                                 <option class="option" value="ОМС">ОМС</option>
@@ -249,11 +249,11 @@
                 
                     <div class="group">
                         <h2>Спасибо за регестрацию!</h2>
-
+                        <div success>
+                            <img src="../assets/registered.png" alt="Succes" width="100%">
+                        </div>
                     </div>
-                    <div success>
-                        <img src="../assets/registered.png" alt="Succes" width="100%">
-                    </div>
+                    
 
                 </div> 
             </div>
