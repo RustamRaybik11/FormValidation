@@ -53,19 +53,22 @@ body{
 	width:100%;
 	color:#fff;
     display:flex;
-    margin-bottom: 5px;
+	margin-bottom: 5px;
+	
 }
 .login-form .group .input{
 	border:none;
 	border-radius: 15px;
 	padding:15px 20px;
 	background:rgba(255,255,255,.1);
+	-webkit-appearance: none;
 }
 .login-form .row .input{
 	border:none;
 	border-radius: 15px;
     padding:15px 20px;
-    opacity: 0.8;
+	opacity: 0.8;
+	-webkit-appearance: none;
 }
 .input:invalid{
     border: none;
