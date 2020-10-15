@@ -248,8 +248,11 @@
 
                 
                     <div class="group">
-                        <h3>Спасибо за регестрацию!</h3>
+                        <h2>Спасибо за регестрацию!</h2>
 
+                    </div>
+                    <div success>
+                        <img src="../assets/registered.png" alt="Succes" width="100%">
                     </div>
 
                 </div> 
