@@ -8,10 +8,21 @@ body{
 }
 @media (min-width: 800px) {
     form{
-    padding-top: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 	}
 	.row{
 		display: inline-block;
+	}
+}
+@media (min-height: 812px){
+	.form{
+		min-height: 788px;
+	}
+}
+@media (min-height: 1366px){
+	form{
+		min-height: 1336px;
 	}
 }
 *,:after,:before{box-sizing:border-box}
@@ -134,7 +145,6 @@ input[type=radio] {
 }
 
 footer{
-	margin-top: 18px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	position: relative;
@@ -151,9 +161,7 @@ footer a{
 	-webkit-text-fill-color: transparent;
 }
 .success{
-	position: fixed;
 	height: 100%;
-	margin-top: 15rem;
-	margin-bottom: 15em;
+	top: 50%;
 
 }
