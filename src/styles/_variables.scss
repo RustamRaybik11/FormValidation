@@ -1,4 +1,6 @@
 body{
+	background: url(./assets/bg.jpg) no-repeat center fixed;
+	background-size: cover;
 	margin:0;
 	color:#6a6f8c;
 	height: 100%;
@@ -17,8 +19,7 @@ body{
 .clearfix:after,.clearfix:before{content:'';display:table}
 .clearfix:after{clear:both;display:block}
 form{
-	background: url(./assets/bg.jpg) no-repeat center fixed;
-	background-size: cover;
+	
 	height: 100%;
 }
 .login-wrap{
