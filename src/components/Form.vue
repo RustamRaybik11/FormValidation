@@ -7,9 +7,10 @@
                     
 
                     <!--Первый этап -->
-                    <transition name="slide-fade">
+                    <transition name="slide-fade"><!-- Создание анимации -->
                         <div class="dForm" v-show="step === 1">
                         <h2>Регистрация</h2>
+                        <!-- Имя -->
                             <div class="group">
                                 <label class="label" for="name">*Ваше имя</label>
 
@@ -22,6 +23,7 @@
                                 <div class="error" v-if="!$v.formReg.name.alpha">{{ alphaText }}</div>
                             </div>
 
+                            <!-- Фамилия -->
                             <div class="group">
                                 <label class="label" for="surname">*Ваша фамилия</label>
 
@@ -34,6 +36,7 @@
                                 <div class="error" v-if="!$v.formReg.surname.alpha">{{ alphaText }}</div>
                             </div>
 
+                            <!-- Отчество -->
                             <div class="group">
                                 <label class="label" for="surname">Ваше отчество</label>
 
@@ -43,6 +46,8 @@
                                         type="text" class="input" id="fathername">
                             </div>
 
+                            <!-- Дата рождения -->
+
                             <div class="group drop">
                                 <div >
                                     <label class="label">*Дата рождения</label>
@@ -50,6 +55,9 @@
                                 </div>
                                 <div class="error" v-if="!$v.formReg.date.required">{{reqText}}</div>    
                             </div>
+
+                            <!-- Номер телефона -->
+
                             <div class="group">
                                 <div>
                                     <label class="label">*Номер телефона</label>
@@ -60,6 +68,8 @@
                                 <div class="error" v-if="!$v.formReg.phone.strongPhone">{{phoneLength}}</div>
                                 <div class="error" v-if="!$v.formReg.phone.start7">{{start}}</div>
                             </div>
+
+                            <!-- Пол -->
 
                             <div class="row">
                                 <label class="label">Пол</label><br><br>
@@ -75,6 +85,8 @@
                                 </div>
                             </div>
 
+                            <!-- Группа клентов -->
+
                             <div class="group drop">
                                 <label class="label">*Группа клиентов</label>
                                 <select class="input multi" v-model.trim="$v.formReg.clients.$model">
@@ -84,6 +96,8 @@
                                 </select>
                                 <div class="error" v-if="!$v.formReg.clients.required">{{reqText}}</div>
                             </div>
+
+                            <!-- Лечащий врач -->
 
                             <div class="row">
                                 <label class="label">Лечащий врач</label><br><br>
@@ -104,10 +118,15 @@
                                 </div>
                             </div>
 
+                            <!-- СМС -->
+
                             <label class="row">
                                 <input class="input" type="checkbox" name="sms-agreement" v-model.trim="$v.formReg.sms.$model">
                                 <span class="label">Не отправлять мне смс.</span>
                             </label>
+
+                            <!-- Кнпока -->
+                            
                             <div class="group">
                             <button @click="step++" :disabled="disabledBtn1"
                                     type="button" class="button">Далее</button>
@@ -121,12 +140,16 @@
                     <transition name="slide-fade">
                         <div class="dForm" v-show="step === 2">
                         <h2>Адрес</h2>
+
+                            <!-- Индекс -->
                             <div class="group">
                                 <label class="label" for="index">Индекс</label>
 
                                 <input v-model.trim="formReg.index" type="text" class="input" id="index">
 
                             </div>
+
+                            <!-- Страна -->
 
                             <div class="group">
                                 <label class="label" for="country">Страна</label>
@@ -135,12 +158,16 @@
 
                             </div>
 
+                            <!-- Регион -->
+
                             <div class="group">
                                 <label class="label" for="region">Регион</label>
 
                                 <input v-model.trim="formReg.region" type="text" class="input" id="region">
 
                             </div>
+
+                            <!-- Город -->
 
                             <div class="group">
                                 <label class="label" for="city">Город</label>
@@ -154,6 +181,8 @@
                                 <div class="error" v-if="!$v.formReg.city.required">{{reqText}}</div>
                             </div>
 
+                            <!-- Улица -->
+
                             <div class="group">
                                 <label class="label" for="street">Улица</label>
 
@@ -161,12 +190,17 @@
 
                             </div>
 
+                            <!-- Дом -->
+
                             <div class="group">
                                 <label class="label" for="house">Дом</label>
 
                                 <input v-model.trim="formReg.house" type="text" class="input" id="house">
 
                             </div>
+
+                            <!-- Кнпоки -->
+
                             <div class="row">
                                 <button @click="step--" type="button" class="button">Назад</button>
                                 <button @click="step++" :disabled="disabledBtn2"
@@ -181,6 +215,9 @@
                     <transition name="slide-fade">
                         <div class="dForm" v-show="step === 3">
                         <h2>Документ</h2>
+
+                            <!-- Тип документа -->
+
                             <div class="row">
                                 <label class="label">*Тип документа</label><br><br>
                                 <div class="radBlock">
@@ -202,12 +239,16 @@
                                 <div class="error" v-if="!$v.formReg.document.required">{{reqText}}</div>
                             </div>
 
+                            <!-- Серия -->
+
                             <div class="group">
                                 <label class="label" for="series">Серия</label>
 
                                 <input v-model.trim="formReg.series" type="text" class="input" id="series">
 
                             </div>
+
+                            <!-- Номер -->
 
                             <div class="group">
                                 <label class="label" for="number">Номер</label>
@@ -216,12 +257,16 @@
 
                             </div>
 
+                            <!-- Кем выдан -->
+
                             <div class="group">
                                 <label class="label" for="issuedBy">Кем выдан</label>
 
                                 <input v-model.trim="formReg.issuedBy" type="text" class="input" id="issuedBy">
 
                             </div>
+
+                            <!-- Дата выдачи -->
 
                             <div class="group drop">
                                 <div >
@@ -231,6 +276,7 @@
                                 <div class="error" v-if="!$v.formReg.dateOfIssue.required">{{reqText}}</div>    
                             </div>
 
+                            <!-- Кнпоки -->
                             
                             <div class="row">    
                                 <button @click="step--" type="button" class="button">Назад</button>
@@ -262,6 +308,7 @@
         </div>
         
     </form>
+    <!-- Футер -->
     <footer>
         <div>
             <p>Created by <a href="https://rustam-raybik.netlify.app/">Rustam Raybik</a></p>
@@ -272,6 +319,9 @@
 
 <script>
 import { required, integer, helpers } from 'vuelidate/lib/validators'
+
+// Кастомная валидация
+
 const alpha = helpers.regex('alpha', /^[a-zA-Zа-яёА-ЯЁ]*$/);
 const start7 = helpers.regex('start7', /^7[^\s]*$/i);
 export default {
@@ -309,6 +359,7 @@ data() {
     }
 },
 computed: {
+    //Кнопки отключены если не выполнены условия
     disabledBtn1() {
     return this.$v.formReg.name.$invalid || 
             this.$v.formReg.surname.$invalid ||
@@ -358,6 +409,7 @@ methods: {
         
     }
 },
+//Валидация
 validations: {
     formReg: {
         name: {
